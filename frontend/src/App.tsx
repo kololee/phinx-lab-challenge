@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import { useState } from 'react'
+
+import {
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Container,
+  Typography,
+} from "@mui/material";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Container maxWidth="md">
+        <Box sx={{ mt: 4 }}>
+          <Typography variant="h4" align="left">
+            Battle of Pokemon
+          </Typography>
+          <Typography variant="h5" align="left">
+            Select your Pokemon
+          </Typography>
+
+          <Card sx={{ maxWidth: 180, mt: 4, p: 1, boxShadow: 5 }}>
+            <CardMedia
+              component="img"
+              height="140"
+              image="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+              alt="Bulbasaur"
+            />
+            <CardContent style={{ padding: 1 }}>
+              <Typography variant="body1">Bulbasaur</Typography>
+            </CardContent>
+          </Card>
+        </Box>
+      </Container>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
