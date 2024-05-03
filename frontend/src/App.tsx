@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { useContext } from "react";
 
 import { Button, Container, Grid, Typography } from "@mui/material";
 import { pokemon } from "./pokemon";
@@ -6,8 +6,11 @@ import { Pokemon } from "./types/Pokemon";
 import PokemonCard from "./components/PokemonCard";
 import PokemonStats from "./components/PokemonStats";
 import WinnerBanner from "./components/WinnerBanner";
+import { PokemonContext } from "./context/PokemonContext";
 
 function App() {
+  const { chosenPokemon } = useContext(PokemonContext) || {};
+
   const pokemonArray: Pokemon[] = pokemon;
   // const [winner, setWinner] = useState<string | null>(null);
   // const [battleStarted, setBattleStarted] = useState<boolean>(false);
@@ -57,7 +60,7 @@ function App() {
         >
           {/* Pokemon 1 Stats */}
           <Grid item xs={1} md={5}>
-            <PokemonStats />
+            <PokemonStats pokemon={chosenPokemon ? chosenPokemon : undefined}/>
           </Grid>
 
           {/* Start Battle Button */}
