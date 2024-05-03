@@ -3,7 +3,7 @@ import { Pokemon } from "../types/Pokemon";
 
 const PokemonCard = ({ pokemon }: { pokemon: Pokemon }) => {
   return (
-    <Card sx={{ maxWidth: 180, mt: 4, p: 1, boxShadow: 5 }}>
+    <Card sx={{ maxWidth: 180, mt: 4, p: 1, boxShadow: 5, borderRadius: 1.5, marginTop: 2 }}>
       <CardMedia
         component="img"
         height="140"

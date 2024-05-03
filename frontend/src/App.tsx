@@ -1,11 +1,6 @@
 // import { useState } from 'react'
 
-import {
-  Button,
-  Container,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Button, Container, Grid, Typography } from "@mui/material";
 import { pokemon } from "./pokemon";
 import { Pokemon } from "./types/Pokemon";
 import PokemonCard from "./components/PokemonCard";
@@ -22,7 +17,7 @@ function App() {
   return (
     <>
       <Container maxWidth="md" sx={{ mt: 4 }}>
-        <Typography variant="h4" align="left">
+        <Typography variant="h4" align="left" sx={{ mb: 4 }}>
           Battle of Pokemon
         </Typography>
         <Typography variant="h5" align="left">
@@ -49,28 +44,35 @@ function App() {
           container
           justifyContent="center"
           alignItems="center"
-          spacing={2}
+          spacing={1}
           sx={{ mt: 4 }}
         >
           {/* Pokemon 1 Stats */}
-          <Grid item>
+          <Grid item xs={1} md={5}>
             <PokemonStats pokemon={pokemonArray[0]} />
           </Grid>
 
           {/* Start Battle Button */}
-          <Grid item>
+          <Grid item md={2} sx={{ display: 'flex', justifyContent: 'center' }}>
             <Button
               variant="contained"
               color="primary"
-              sx={{ mt: 4 }}
+              sx={{
+                mt: 4,
+                borderRadius: 1.5,
+                boxShadow: 5,
+                textTransform: "capitalize",
+              }}
               onClick={handleStartBattle}
             >
-              Start Battle
+              <Typography variant="body1" align="center">
+                Start Battle
+              </Typography>
             </Button>
           </Grid>
 
           {/* Pokemon 2 Stats */}
-          <Grid item>
+          <Grid item xs={1} md={5}>
             <PokemonStats pokemon={pokemonArray[1]} />
           </Grid>
         </Grid>

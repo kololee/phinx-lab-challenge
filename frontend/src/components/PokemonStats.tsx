@@ -11,15 +11,16 @@ import { Pokemon } from "../types/Pokemon";
 
 const PokemonStats = ({ pokemon }: { pokemon: Pokemon }) => {
   return (
-    <Card sx={{ maxWidth: "180", p: 1, boxShadow: 5 }}>
+    <Card sx={{ maxWidth: "180", p: 1, boxShadow: 5, borderRadius: 1.5 }}>
       <CardMedia
         component="img"
-        height="140"
+        height="250"
         image={pokemon.imageUrl}
         alt={pokemon.name}
+        sx={{ objectFit: "contain" }}
       />
       <CardContent>
-        <Typography variant="h6" align="center">
+        <Typography variant="h5" align="left">
           {pokemon.name}
         </Typography>
         <Divider />
