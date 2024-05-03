@@ -9,8 +9,16 @@ import WinnerBanner from "./components/WinnerBanner";
 
 function App() {
   const pokemonArray: Pokemon[] = pokemon;
+  // const [winner, setWinner] = useState<string | null>(null);
+  // const [battleStarted, setBattleStarted] = useState<boolean>(false);
+  // const [pokemon2, setPokemon2] = useState<Pokemon | null>(null);
 
   const handleStartBattle = () => {
+    // setBattleStarted(true);
+    // setWinner(null);
+    // // Randomly select the second Pokemon
+    // const randomIndex = Math.floor(Math.random() * pokemonArray.length);
+    // setPokemon2(pokemonArray[randomIndex]);
     return;
   };
 
@@ -49,7 +57,7 @@ function App() {
         >
           {/* Pokemon 1 Stats */}
           <Grid item xs={1} md={5}>
-            <PokemonStats pokemon={pokemonArray[0]} />
+            <PokemonStats />
           </Grid>
 
           {/* Start Battle Button */}
