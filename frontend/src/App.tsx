@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { Button, Container, Grid, Typography } from "@mui/material";
 import { pokemon } from "./pokemon";
@@ -12,16 +12,16 @@ function App() {
   const { chosenPokemon } = useContext(PokemonContext) || {};
 
   const pokemonArray: Pokemon[] = pokemon;
-  // const [winner, setWinner] = useState<string | null>(null);
+  const [winner, setWinner] = useState<string>('');
   // const [battleStarted, setBattleStarted] = useState<boolean>(false);
-  // const [pokemon2, setPokemon2] = useState<Pokemon | null>(null);
+  const [pokemon2, setPokemon2] = useState<Pokemon | undefined>(undefined);
 
   const handleStartBattle = () => {
     // setBattleStarted(true);
-    // setWinner(null);
-    // // Randomly select the second Pokemon
-    // const randomIndex = Math.floor(Math.random() * pokemonArray.length);
-    // setPokemon2(pokemonArray[randomIndex]);
+    setWinner('');
+    // Randomly select the second Pokemon
+    const randomIndex = Math.floor(Math.random() * pokemonArray.length);
+    setPokemon2(pokemonArray[randomIndex]);
     return;
   };
 
@@ -49,7 +49,7 @@ function App() {
           })}
         </Grid>
 
-        <WinnerBanner winner="Pikachu" />
+        <WinnerBanner winner={winner} />
 
         <Grid
           container
@@ -84,7 +84,7 @@ function App() {
 
           {/* Pokemon 2 Stats */}
           <Grid item xs={1} md={5}>
-            <PokemonStats pokemon={pokemonArray[1]} />
+            <PokemonStats pokemon={pokemon2} />
           </Grid>
         </Grid>
       </Container>

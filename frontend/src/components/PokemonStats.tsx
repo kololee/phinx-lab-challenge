@@ -27,8 +27,8 @@ const PokemonStats = ({ pokemon }: { pokemon?: Pokemon }) => {
         sx={{ objectFit: "contain" }}
       />
       <CardContent>
-        <Typography variant="h5" align="left">
-          {pokemon ? pokemon.name : 0}
+        <Typography variant="h5" align="left" sx={{ height: '2rem' }}>
+          {pokemon ? pokemon.name : ''}
         </Typography>
         <Divider />
 
