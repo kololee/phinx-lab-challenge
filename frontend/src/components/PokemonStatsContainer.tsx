@@ -1,14 +1,18 @@
 import { Grid, Button, Typography } from "@mui/material";
 import PokemonStats from "./PokemonStats";
 import { Pokemon } from "../types/Pokemon";
+import { useContext } from "react";
+import { PokemonContext } from "../context/PokemonContext";
 
 type PokemonStatsContainerProps = {
-  chosenPokemon: Pokemon;
-  handleStartBattle: () => void;
+  handleStartBattle: (chosenPokemon: Pokemon) => void;
   pokemon2: Pokemon | undefined;
 };
 
-const PokemonStatsContainer = ({ chosenPokemon, handleStartBattle, pokemon2 }: PokemonStatsContainerProps) => {
+const PokemonStatsContainer = ({ handleStartBattle, pokemon2 }: PokemonStatsContainerProps) => {
+  
+  const { chosenPokemon } = useContext(PokemonContext) || {};
+  
   return (
     <Grid
       container
@@ -33,7 +37,8 @@ const PokemonStatsContainer = ({ chosenPokemon, handleStartBattle, pokemon2 }: P
             boxShadow: 5,
             textTransform: "capitalize",
           }}
-          onClick={handleStartBattle}
+          onClick={() => handleStartBattle(chosenPokemon)}
+          disabled={!chosenPokemon.id}
         >
           <Typography variant="body1" align="center">
             Start Battle
