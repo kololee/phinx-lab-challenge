@@ -148,21 +148,28 @@ Luego, con algún cliente de APIs puede probar hacer las siguientes llamadas:
 La estructura del `body` del post es:
 ```json
 {
-  challenger: string;
-  contender: string;
+  "challenger": "string",
+  "contender": "string"
 }
 ```
 
 Y el tipo pokemon tiene la siguiente interfaz:
 ```json
 {
-  id: string;
-  name: string;
-  attack: number;
-  defense: number;
-  hp: number;
-  speed: number;
-  type: string;
-  imageUrl: string;
+  "id": "string",
+  "name": "string",
+  "attack": "number",
+  "defense": "number",
+  "hp": "number",
+  "speed": "number",
+  "type": "string",
+  "imageUrl": "string"
 }
 ```
+
+
+## Trabajo a futuro
+
+Hay varias posibles mejoras en la UI/UX, sobretodo al momento de _randomizar_ la selección del pokemon de la app, o agregar un _spinner_ cada vez que se simula la batalla.
+
+En backend se podría agregar el sistema de tipos. La implementación que pensé, fue agregar dos tablas, una para el Tipo, y otra que contenga el producto cartesiano entre los tipos, con el porcentaje que afectaría al ataque/defensa.
