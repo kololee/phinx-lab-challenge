@@ -1,11 +1,12 @@
 import { Grid } from "@mui/material";
 import PokemonCard from "./PokemonCard";
-import { pokemon } from "../pokemon";
 import { Pokemon } from "../types/Pokemon";
 
-const pokemonArray: Pokemon[] = pokemon;
+type PokemonCardContainerProps = {
+  pokemonArray: Pokemon[];
+};
 
-const PokemonCardContainer = () => {
+const PokemonCardContainer = ({ pokemonArray }: PokemonCardContainerProps) => {
   return (
     <Grid container style={{ maxWidth: 960, margin: "auto" }}>
       {pokemonArray.map((pokemon, index) => {
