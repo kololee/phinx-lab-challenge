@@ -35,9 +35,13 @@ export class PokemonBattleService {
       where: { id: contenders.contender },
     });
     const firstAttacker: Pokemon =
-      Math.max(pokemon1.speed, pokemon2.speed) === pokemon1.speed
-        ? pokemon1
-        : pokemon2;
+      pokemon1.speed === pokemon2.speed
+        ? Math.random() < 0.5
+          ? pokemon1
+          : pokemon2
+        : Math.max(pokemon1.speed, pokemon2.speed) === pokemon1.speed
+          ? pokemon1
+          : pokemon2;
     const secondAttacker: Pokemon =
       firstAttacker === pokemon1 ? pokemon2 : pokemon1;
 
